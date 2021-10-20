@@ -1,0 +1,9 @@
+[Unit]
+Description=Butterfly Terminal Server
+
+[Service]
+ExecStart=/usr/local/bin/butterfly.server.py --host="0.0.0.0" --unsecure --shell=/bin/bash
+User=pi
+
+[Install]
+WantedBy=multi-user.target

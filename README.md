@@ -21,6 +21,6 @@ Note that downloading the image may take a while as it's quite large currently.
 
 Access the drone using web tools:
 
-* `<ip_address>:8080` – Clover's web tools. Use external camera view to monitor your simulation.
-* `<ip_address>:57575` – Butterfly terminal.
-* `<ip_address>:7070` – gzweb.
+* `http://<ip_address>:8080` – Clover's web tools. Use external camera view to monitor your simulation.
+* `http://<ip_address>:57575` – Butterfly terminal.
+* `http://<ip_address>:7070` – gzweb.

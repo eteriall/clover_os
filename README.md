@@ -21,7 +21,7 @@ Access the drone using web tools:
 
 ## Running managed simulation playground
 
-Prerequisites: Ubuntu Linux (20.04+ is recommended), git, Python 3, pip.
+Prerequisites: Ubuntu Linux (20.04+ is recommended), Docker, git, Python 3, pip.
 
 Clone the repo:
 

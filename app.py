@@ -11,11 +11,6 @@ def index():
     return send_from_directory('www', 'index.html')
 
 
-@app.route('/frames')
-def frames():
-    return send_from_directory('www', 'frames.html')
-
-
 def run(cmd):
     result = subprocess.run(cmd.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     if result.returncode == os.EX_OK:

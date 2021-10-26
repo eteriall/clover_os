@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, make_response
 from flask_limiter import Limiter
 import subprocess
 import os
@@ -53,4 +53,6 @@ def status():
 
 @app.route('/log')
 def log():
-    return subprocess.check_output('sudo journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show -p InvocationID --value clover-cloud.service) -o cat --no-pager', shell=True)
+    resp = make_response(subprocess.check_output('sudo journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show -p InvocationID --value clover-cloud.service) -o cat --no-pager', shell=True))
+    resp.headers['Content-Type'] = 'text/plain; charset=utf-8'
+    return resp

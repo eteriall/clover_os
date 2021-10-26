@@ -2,6 +2,8 @@
 
 Clover drone simulation playground for cloud.
 
+<img src="screenshot.png" width=600>
+
 ## Running
 
 Prerequisites: [Docker](https://docs.docker.com/engine/install/ubuntu/).
@@ -26,6 +28,8 @@ Access the drone using web tools:
 * `http://<ip_address>:7070` – gzweb.
 
 ## Running managed simulation playground
+
+<img src="app.png" width=400>
 
 Prerequisites: Ubuntu Linux (20.04+ is recommended), Docker, git, Python 3, pip.
 

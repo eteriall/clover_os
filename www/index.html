@@ -11,7 +11,6 @@
 	</li>
 	<li><a id="butterfly">Butterfly</a> (password: <code>raspberry</code>)</li>
 	<li><a id="gzperf">Gazebo performance</a></li>
-	<li><a href="log">Service log</a></li>
 </ul>
 
 <p><strong>Warning!</strong> This is an experimental version of Clover Playground. All the artifacts you create are ephemeral — the can be removed (resetting the state of the virtual machine) at any moment.</p>
@@ -26,7 +25,7 @@ Create a <b>UDP</b> connection with address <code class="address"></code> and po
 
 <form style="display: inline-block;" class="control" method=post action="reset"><input type=submit value="Reset sim"></form>
 <form style="display: inline-block;" class="control" method=post action="stop"><input type=submit value="Stop sim"></form>
-<span>status: <span class="status"></span></span>
+<span>status: <strong class="status"></strong> (<a href="log">service log</a>)</span>
 
 <p>Resetting the simulator will delete all the user files and restore the disk to its initial state.</p>
 

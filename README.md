@@ -7,7 +7,13 @@ Clover drone simulation playground for cloud.
 Prerequisites: [Docker](https://docs.docker.com/engine/install/ubuntu/).
 
 ```bash
-docker run -p 8080:8080 -p 9090:9090 -p 7070:7070 -p 57575:57575 -p 8000:80 -p 18570:18570/udp \
+docker run \
+  -p 8080:8080 \
+  -p 9090:9090 \
+  -p 7070:7070 \
+  -p 57575:57575 \
+  -p 8000:80 \
+  -p 18570:18570/udp \
   ghcr.io/copterexpress/clover-cloud:latest
 ```
 

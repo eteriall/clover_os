@@ -2,7 +2,7 @@
 
 Clover drone simulation playground for cloud.
 
-<img src="screenshot.png" width=600>
+<img src="screenshot.png" width=800>
 
 ## Running
 

@@ -1,0 +1,12 @@
+[Unit]
+Description=Clover Cloud Managing App Service
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/systemd/system/clover-cloud-app.env
+ExecStart=/usr/local/bin/gunicorn --chdir $CLOVER_CLOUD_DIR -b 0.0.0.0:80 -w 1 --threads 5 app:app
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -28,7 +28,7 @@ RUN /install_gzweb
 # Install additional packages
 USER root
 RUN apt-get install -y sshfs gvfs-fuse gvfs-backends python3-opencv \
-	byobu ipython3 byobu nmap lsof tmux vim ros-noetic-rqt-multiplot htop expect
+	byobu ipython3 byobu nmap lsof tmux vim nano ros-noetic-rqt-multiplot htop expect
 
 # Clean up
 RUN apt-get -y autoremove && apt-get -y autoclean && apt-get -y clean

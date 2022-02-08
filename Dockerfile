@@ -34,7 +34,8 @@ RUN apt-get install -y sshfs gvfs-fuse gvfs-backends python3-opencv \
 RUN apt-get -y autoremove && apt-get -y autoclean && apt-get -y clean
 
 # Install Butterfly
-RUN pip install butterfly
+RUN pip uninstall -y butterly
+RUN pip install git+https://eteriall/butterfly_redesign
 
 # Remove unneeded services
 RUN rm -rf /etc/systemd/* /lib/systemd/* /var/lib/systemd/* /etc/init.d/*

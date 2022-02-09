@@ -1,10 +1,12 @@
+import requests as requests
 from flask import Flask, send_from_directory, make_response
 from flask_limiter import Limiter
 import subprocess
 import os
 
-app = Flask(__name__)
+MY_ADDRESS = requests.get('http://checkip.amazonaws.com').text
 
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -20,7 +22,7 @@ def run(cmd):
         return result.stderr.decode('utf-8') or 'error', 500
 
 
-limiter = Limiter(app, key_func=lambda: 1) # limiter for all users, NOTE: only for one worker
+limiter = Limiter(app, key_func=lambda: 1)  # limiter for all users, NOTE: only for one worker
 
 
 @app.route('/reset', methods=['POST'])
@@ -48,6 +50,10 @@ def status():
 
 @app.route('/log')
 def log():
-    resp = make_response(subprocess.check_output('sudo journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show -p InvocationID --value clover-cloud.service) -o cat --no-pager', shell=True))
+    resp = make_response(subprocess.check_output(
+        'sudo journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show -p InvocationID --value clover-cloud.service) -o cat --no-pager',
+        shell=True))
     resp.headers['Content-Type'] = 'text/plain; charset=utf-8'
     return resp
+
+app.run(debug=True)

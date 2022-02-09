@@ -1,53 +1,94 @@
+<head>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400;1,500&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap"
+          rel="stylesheet">
+</head>
+<body>
 <h1>Clover Drone Cloud Playground</h1>
 
 <p>See the <a href="https://github.com/CopterExpress/clover_cloud">GitHub repo</a> for details.</p>
 
-<ul>
-	<li><a id="tools">Clover tools</a></li>
-	<li><a id="gzweb"><code>gzweb</code></a></li>
-	<li>
-		<a id="wvs"><code>web_video_server</code></a>
-		<ul><li><a id="cam">External camera view</a></li></ul>
-	</li>
-	<li><a id="butterfly">Butterfly</a> (password: <code>raspberry</code>)</li>
-	<li><a id="gzperf">Gazebo performance</a></li>
-</ul>
+<div>
+    <button onclick="document.getElementById('butterfly-popup').style.removeProperty('display');">Terminal</button>
+    <button onclick="document.getElementById('vs-code-popup').style.removeProperty('display');">VS Code</button>
+    <button onclick="document.getElementById('gazebo-popup').style.removeProperty('display');">Gazebo Web</button>
+</div>
 
-<p><strong>Warning!</strong> This is an experimental version of Clover Playground. All the artifacts you create are ephemeral — the can be removed (resetting the state of the virtual machine) at any moment.</p>
+
+<div class="popup" id="butterfly-popup">
+    <div class="popup-header">
+        <b style="margin-right: 40px; float: left; ">Terminal</b>
+
+
+        <a onclick="document.getElementById('butterfly-popup').style.display = 'none';"
+           style="float: right;">&nbspclose</a>
+
+        <a href="http://52.71.71.149:57575/" target="_blank"
+           style="float: right; text-decoration: none; color:white; float: right;"
+           onclick="document.getElementById('butterfly-popup').style.display = 'none';">fullscreen / </a>
+
+    </div>
+    <iframe id='butterfly-iframe' src="http://52.71.71.149:57575/"></iframe>
+    <div style="height: 40px; width: 100%"></div>
+</div>
+
+<div class="popup" id="vs-code-popup">
+    <div class="popup-header">
+        <b style="margin-right: 40px; float: left; ">Visual Studio Code</b>
+
+
+        <a onclick="document.getElementById('vs-code-popup').style.display = 'none';"
+           style="float: right;">&nbspclose</a>
+
+        <a href="http://52.71.71.149:5000/?folder=%2Fhome%2Fubuntu" target="_blank"
+           style="float: right; text-decoration: none; color:white; float: right;"
+           onclick="document.getElementById('vs-code-popup').style.display = 'none';">fullscreen / </a>
+
+    </div>
+    <iframe id='vs-code-iframe' src="http://52.71.71.149:5000/?folder=%2Fhome%2Fubuntu"></iframe>
+    <div style="height: 40px; width: 100%"></div>
+</div>
+
+<div class="popup" id="gazebo-popup">
+    <div class="popup-header">
+        <b style="margin-right: 40px; float: left; ">Gazebo Web</b>
+
+
+        <a onclick="document.getElementById('gazebo-popup').style.display = 'none';"
+           style="float: right;">&nbspclose</a>
+
+        <a href="http://52.71.71.149:7070/" target="_blank"
+           style="float: right; text-decoration: none; color:white; float: right;"
+           onclick="document.getElementById('gazebo-popup').style.display = 'none';">fullscreen / </a>
+
+    </div>
+    <iframe id='gazebo-iframe' src="http://52.71.71.149:7070/"></iframe>
+    <div style="height: 40px; width: 100%"></div>
+</div>
+
+
+<p><strong>Warning!</strong> This is an experimental version of Clover Playground. All the artifacts you create are
+    ephemeral — the can be removed (resetting the state of the virtual machine) at any moment.</p>
 
 <h2>QGroundControl connection</h2>
 
-Create a <b>UDP</b> connection with address <code class="address"></code> and port <code>18570</code> to connect to your virtual flight controller.
+Create a <b>UDP</b> connection with address <code class="address"></code> and port <code>18570</code> to connect to your
+virtual flight controller.
 
 <h2>Control</h2>
 
 <p>To restart the simulator use <code>sudo systemctl restart clover</code> in Butterfly.</p>
 
-<form style="display: inline-block;" class="control" method=post action="reset"><input type=submit value="Reset sim"></form>
-<form style="display: inline-block;" class="control" method=post action="stop"><input type=submit value="Stop sim"></form>
+<form style="display: inline-block;" class="control" method=post action="reset"><input type=submit value="Reset sim">
+</form>
+<form style="display: inline-block;" class="control" method=post action="stop"><input type=submit value="Stop sim">
+</form>
 <span>status: <strong class="status"></strong> (<a href="log">service log</a>)</span>
 
 <p>Resetting the simulator will delete all the user files and restore the disk to its initial state.</p>
 
-<script type="text/javascript">
-	document.querySelector("#tools").href = location.protocol + '//' + location.hostname + ':8000';
-	document.querySelector("#gzweb").href = location.protocol + '//' + location.hostname + ':7070';
-	document.querySelector("#wvs").href = location.protocol + '//' + location.hostname + ':8080';
-	document.querySelector("#cam").href = location.protocol + '//' + location.hostname + ':8080/stream_viewer?topic=/camera/image_raw';
-	document.querySelector("#butterfly").href = location.protocol + '//' + location.hostname + ':57575';
-	document.querySelector("#gzperf").href = location.protocol + '//' + location.hostname + ':8000/clover/topics.html?topic=/gazebo/performance_metrics';
 
-	document.querySelector('.address').innerHTML = location.hostname;
-
-	function refreshStatus() {
-		fetch('status').then(function(response) {
-			response.text().then(function(text) {
-				document.querySelector('.status').innerHTML = text;
-				setTimeout(refreshStatus, 2000);
-			});
-		});
-	}
-	refreshStatus();
-</script>
-
-<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(86041194, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/86041194" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+<script type="text/javascript" src="static/drag.js"></script>
+</body>

@@ -25,7 +25,7 @@ sudo docker run \
 ## Running managed simulation playground
 
 ```bash
-git clone https://github.com/CopterExpress/clover_cloud.git
+git clone https://github.com/eteriall/clover_cloud
 cd clover_cloud
 ```
 

@@ -9,6 +9,12 @@ RUN ["echo", "success!"]
 
 CMD ["/usr/bin/systemctl"]
 
-RUN systemctl enable code-server@pi
+# Visual Studio Code server service
+COPY vs-code.service /lib/systemd/system/
+
+RUN systemctl daemon-reload
+
+RUN systemctl start vs-code
+RUN systemctl enable vs-code
 
 EXPOSE 8080 8081 9090 7070 57575 591

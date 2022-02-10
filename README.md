@@ -5,7 +5,7 @@ Clover drone simulation playground for cloud.
 ## Running
 
 ```bash
-docker run \
+sudo docker run \
   -p 8080:8080 \
   -p 9090:9090 \
   -p 7070:7070 \

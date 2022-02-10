@@ -3,7 +3,6 @@ Description=vs-code
 After=nginx.service
 
 [Service]
-Type=simple
 ExecStart=/usr/bin/code-server --host 0.0.0.0 --bind-addr localhost:591 --auth none
 Restart=always
 

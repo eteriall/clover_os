@@ -1,5 +1,5 @@
 [Unit]
-Description=code-server
+Description=vs-code
 After=nginx.service
 
 [Service]

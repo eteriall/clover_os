@@ -1,16 +1,16 @@
 import requests as requests
-from flask import Flask, send_from_directory, make_response
+from flask import Flask, send_from_directory, make_response, render_template
 from flask_limiter import Limiter
 import subprocess
 import os
 
-MY_ADDRESS = requests.get('http://checkip.amazonaws.com').text
+MY_ADDRESS = '52.71.71.149'
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return send_from_directory('www', 'index.html')
+    return render_template('index.html', IP=MY_ADDRESS)
 
 
 def run(cmd):

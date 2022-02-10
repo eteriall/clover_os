@@ -4,7 +4,7 @@ from flask_limiter import Limiter
 import subprocess
 import os
 
-MY_ADDRESS = '52.71.71.149'
+MY_ADDRESS = requests.get('http://checkip.amazonaws.com/').text
 
 app = Flask(__name__)
 
@@ -55,5 +55,3 @@ def log():
         shell=True))
     resp.headers['Content-Type'] = 'text/plain; charset=utf-8'
     return resp
-
-app.run(debug=True)

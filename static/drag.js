@@ -17,8 +17,6 @@ function placeOnTop(id){
 
  function turnOffPointerEvents() {
         var popups = document.getElementsByTagName("iframe");
-        console.log('in');
-
         for (var i = 0; i < popups.length; i++) {
             popups[i].style.pointerEvents = "none";
         };
@@ -26,7 +24,6 @@ function placeOnTop(id){
 
 function turnOnPointerEvents() {
         var popups = document.getElementsByTagName("iframe");
-        console.log('out');
         for (var i = 0; i < popups.length; i++) {
             popups[i].style.pointerEvents = "auto";
         };
@@ -121,8 +118,6 @@ function initResizeElement() {
 
   function initDrag(e) {
     element = this.parentPopup;
-
-    console.log('turn-off');
     turnOffPointerEvents();
 
     startX = e.clientX;

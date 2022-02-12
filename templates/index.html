@@ -5,11 +5,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400;1,500&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap"
           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>COEX-Cloud</title>
 </head>
 
-<body style="background: linear-gradient(106.66deg, #050C18 7.56%, #010611 35.97%, #203159 106.91%);">
+<body>
 <div id="loading" style="position:absolute; z-index: 10;">
     <style>:root{
   --main-color: #6EACF9;
@@ -182,6 +183,12 @@ background: linear-gradient(106.66deg, #050C18 7.56%, #010611 35.97%, #203159 10
 
 
 
+
+
+
+
+
+
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -258,18 +265,26 @@ margin-top: 540px;">
 
 </div>
 
+<div style="font-family: 'Roboto Mono', monospace; position:absolute; left: 15px; bottom: 15px; color: white; font-size: 40px; font-weight: 100; opacity: 0.7;">
+    <span>
+        CloverOS v0.3
+    </span>
+</div>
 
 <div id="Desktop">
-    <div onclick="document.getElementById('gazebo-popup').style.removeProperty('display'); placeOnTop('gazebo-popup');" class="icon"
-         data-title="Gazebo Web"><img class="icon-img"
+    <div onclick="document.getElementById('gazebo-popup').style.removeProperty('display'); placeOnTop('gazebo-popup');"
+         class="icon"
+         data-title="Gazebo"><img class="icon-img"
                                       src="https://upload.wikimedia.org/wikipedia/en/5/5e/Gazebo_logo_without_text.svg">
     </div>
-    <div onclick="document.getElementById('vs-code-popup').style.removeProperty('display'); placeOnTop('vs-code-popup');" class="icon"
+    <div onclick="document.getElementById('vs-code-popup').style.removeProperty('display'); placeOnTop('vs-code-popup');"
+         class="icon"
          data-title="VS Code"><img class="icon-img"
                                    src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg">
     </div>
-    <div onclick="document.getElementById('butterfly-popup').style.removeProperty('display'); placeOnTop('butterfly-popup');" class="icon"
-         data-title="Terminal"><img class="icon-img"
+    <div onclick="document.getElementById('butterfly-popup').style.removeProperty('display'); placeOnTop('butterfly-popup');"
+         class="icon"
+         data-title="Console"><img class="icon-img"
                                     src="https://raw.githubusercontent.com/dhanishgajjar/terminal-icons/master/png/synthwave_option_6.png">
     </div>
     <!--<div onclick="document.getElementById('service-log-popup').style.removeProperty('display');" class="icon" data-title="Service Log"><img class="icon-img" src="https://raw.githubusercontent.com/dhanishgajjar/terminal-icons/master/png/synthwave_option_6.png"></div> -->
@@ -278,9 +293,9 @@ margin-top: 540px;">
 
 <div class="popup" id="butterfly-popup" style="width: 1200px; height: 280px;">
     <div class="popup-header">
-        <b style="margin-right: 40px; float: left; ">Terminal</b>
-        <a onclick="document.getElementById('butterfly-popup').style.display = 'none';"
-           style="float: right; margin-left: 5px;">
+        <span style="margin-right: 40px; float: left; ">Terminal</span>
+        <span onclick="document.getElementById('butterfly-popup').style.display = 'none';"
+              style="float: right; margin-left: 5px;">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="7.82109" cy="8.14978" r="7.679" fill="#EC6A5F"/>
                 <line x1="4.86377" y1="11.2478" x2="10.8474" y2="5.26409" stroke="#8B1A11" stroke-width="1.44156"
@@ -288,7 +303,7 @@ margin-top: 540px;">
                 <line x1="5.03691" y1="5.35089" x2="11.0206" y2="11.3346" stroke="#8B1A11" stroke-width="1.44156"
                       stroke-linecap="round"/>
             </svg>
-        </a>
+        </span>                             <!-- Close --->
         <a href="http://{{IP}}:57575/" target="_blank"
            style="float: right; text-decoration: none; color:white; float: right;"
            onclick="document.getElementById('butterfly-popup').style.display = 'none';">
@@ -299,14 +314,23 @@ margin-top: 540px;">
                 <path d="M11.9016 11.9648C11.8882 12.1198 11.7652 12.2427 11.6102 12.2562L6.54392 12.6963C6.24606 12.7222 6.07827 12.3621 6.28968 12.1506L11.7961 6.64426C12.0075 6.43285 12.3676 6.60065 12.3417 6.8985L11.9016 11.9648Z"
                       fill="#347621"/>
             </svg>
-        </a>
+        </a>                                                                 <!-- Full screen --->
+        <span onclick="document.getElementById('butterfly-iframe').contentWindow.location.reload();"
+              style="float: right; margin-right: 5px;">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8.5" cy="8" r="8" fill="#5387C5"/>
+            <path d="M5.67334 11.0419H7.74365V8.67857H8.32959C8.34587 8.67857 8.36214 8.67857 8.37842 8.67857C8.39469 8.67857 8.40934 8.67857 8.42236 8.67857L9.53564 11.0419H11.8501L10.5122 8.37096C10.8768 8.19518 11.1567 7.92662 11.3521 7.56529C11.5474 7.20071 11.645 6.81171 11.645 6.3983V6.38853C11.645 5.88398 11.5392 5.45429 11.3276 5.09947C11.1193 4.7414 10.8084 4.46796 10.395 4.27916C9.98161 4.09036 9.46566 3.99596 8.84717 3.99596H5.67334V11.0419ZM7.74365 7.31139V5.52428H8.60791C8.89111 5.52428 9.11572 5.60728 9.28174 5.7733C9.45101 5.93932 9.53564 6.15253 9.53564 6.41295V6.42271C9.53564 6.68964 9.45101 6.90449 9.28174 7.06725C9.11572 7.23001 8.89111 7.31139 8.60791 7.31139H7.74365Z"
+                  fill="#2D2176"/>
+            </svg>
+        </span>                   <!-- Reload app --->
     </div>
     <iframe id='butterfly-iframe' src="http://{{IP}}:57575/"></iframe>
 </div>
+
 <div class="popup" id="vs-code-popup" style="width: 1000px; height: 800px;">
     <div class="popup-header">
-        <b style="margin-right: 40px; float: left; ">Visual Studio Code</b>
-        <a onclick="document.getElementById('vs-code-popup').style.display = 'none';"
+        <span style="margin-right: 40px; float: left; ">Visual Studio Code</span>
+        <span onclick="document.getElementById('vs-code-popup').style.display = 'none';"
            style="float: right;  margin-left: 5px;">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="7.82109" cy="8.14978" r="7.679" fill="#EC6A5F"/>
@@ -315,8 +339,8 @@ margin-top: 540px;">
                 <line x1="5.03691" y1="5.35089" x2="11.0206" y2="11.3346" stroke="#8B1A11" stroke-width="1.44156"
                       stroke-linecap="round"/>
             </svg>
-        </a>
-        <a href="http://{{IP}}:5000/?folder=/home/clover" target="_blank"
+        </span>                               <!-- Close --->
+        <a href="http://{{IP}}:591/?folder=/home/clover" target="_blank"
            style="float: right; text-decoration: none; color:white; float: right;"
            onclick="document.getElementById('vs-code-popup').style.display = 'none';">
             <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -326,13 +350,22 @@ margin-top: 540px;">
                 <path d="M11.9016 11.9648C11.8882 12.1198 11.7652 12.2427 11.6102 12.2562L6.54392 12.6963C6.24606 12.7222 6.07827 12.3621 6.28968 12.1506L11.7961 6.64426C12.0075 6.43285 12.3676 6.60065 12.3417 6.8985L11.9016 11.9648Z"
                       fill="#347621"/>
             </svg>
-        </a>
+        </a>                                              <!-- Full screen --->
+        <span onclick="document.getElementById('vs-code-iframe').contentWindow.location.reload();"
+              style="float: right; margin-right: 5px;">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8.5" cy="8" r="8" fill="#5387C5"/>
+            <path d="M5.67334 11.0419H7.74365V8.67857H8.32959C8.34587 8.67857 8.36214 8.67857 8.37842 8.67857C8.39469 8.67857 8.40934 8.67857 8.42236 8.67857L9.53564 11.0419H11.8501L10.5122 8.37096C10.8768 8.19518 11.1567 7.92662 11.3521 7.56529C11.5474 7.20071 11.645 6.81171 11.645 6.3983V6.38853C11.645 5.88398 11.5392 5.45429 11.3276 5.09947C11.1193 4.7414 10.8084 4.46796 10.395 4.27916C9.98161 4.09036 9.46566 3.99596 8.84717 3.99596H5.67334V11.0419ZM7.74365 7.31139V5.52428H8.60791C8.89111 5.52428 9.11572 5.60728 9.28174 5.7733C9.45101 5.93932 9.53564 6.15253 9.53564 6.41295V6.42271C9.53564 6.68964 9.45101 6.90449 9.28174 7.06725C9.11572 7.23001 8.89111 7.31139 8.60791 7.31139H7.74365Z"
+                  fill="#2D2176"/>
+            </svg>
+        </span>                     <!-- Reload app --->
     </div>
-    <iframe id='vs-code-iframe' src="http://{{IP}}:5000/?folder=/home/clover"></iframe>
+    <iframe id='vs-code-iframe' src="http://{{IP}}:591/?folder=/home/clover"></iframe>
 </div>
+
 <div class="popup" id="gazebo-popup" style="width: 1000px; height: 800px;">
     <div class="popup-header">
-        <b style="margin-right: 40px; float: left; ">Gazebo Web</b>
+        <span style="margin-right: 40px; float: left; ">Gazebo Web</span>
         <a onclick="document.getElementById('gazebo-popup').style.display = 'none';" style="float: right; margin-left: 5px;">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="7.82109" cy="8.14978" r="7.679" fill="#EC6A5F"/>
@@ -341,7 +374,7 @@ margin-top: 540px;">
                 <line x1="5.03691" y1="5.35089" x2="11.0206" y2="11.3346" stroke="#8B1A11" stroke-width="1.44156"
                       stroke-linecap="round"/>
             </svg>
-        </a>
+        </a>                        <!-- Close --->
         <a href="http://{{IP}}:7070/" target="_blank"
            style="float: right; text-decoration: none; color:white; float: right;"
            onclick="document.getElementById('gazebo-popup').style.display = 'none';">
@@ -352,7 +385,16 @@ margin-top: 540px;">
                 <path d="M11.9016 11.9648C11.8882 12.1198 11.7652 12.2427 11.6102 12.2562L6.54392 12.6963C6.24606 12.7222 6.07827 12.3621 6.28968 12.1506L11.7961 6.64426C12.0075 6.43285 12.3676 6.60065 12.3417 6.8985L11.9016 11.9648Z"
                       fill="#347621"/>
             </svg>
-        </a>
+        </a>                                                                   <!-- Full screen --->
+        <span onclick="document.getElementById('gazebo-iframe').contentWindow.location.reload();"
+              style="float: right; margin-right: 5px;">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8.5" cy="8" r="8" fill="#5387C5"/>
+            <path d="M5.67334 11.0419H7.74365V8.67857H8.32959C8.34587 8.67857 8.36214 8.67857 8.37842 8.67857C8.39469 8.67857 8.40934 8.67857 8.42236 8.67857L9.53564 11.0419H11.8501L10.5122 8.37096C10.8768 8.19518 11.1567 7.92662 11.3521 7.56529C11.5474 7.20071 11.645 6.81171 11.645 6.3983V6.38853C11.645 5.88398 11.5392 5.45429 11.3276 5.09947C11.1193 4.7414 10.8084 4.46796 10.395 4.27916C9.98161 4.09036 9.46566 3.99596 8.84717 3.99596H5.67334V11.0419ZM7.74365 7.31139V5.52428H8.60791C8.89111 5.52428 9.11572 5.60728 9.28174 5.7733C9.45101 5.93932 9.53564 6.15253 9.53564 6.41295V6.42271C9.53564 6.68964 9.45101 6.90449 9.28174 7.06725C9.11572 7.23001 8.89111 7.31139 8.60791 7.31139H7.74365Z"
+                  fill="#2D2176"/>
+            </svg>
+        </span>                       <!-- Reload app --->
+
     </div>
     <iframe id='gazebo-iframe' src="http://{{IP}}:7070/"></iframe>
 </div>
@@ -387,7 +429,6 @@ margin-top: 540px;">
 <script>
 $(window).on('load', function(){
     document.getElementById('loading').remove();
-    console.log('loaded');
 
     var popups = document.getElementsByClassName('popup');
     for (let i = 0; i < popups.length; i++){
@@ -398,8 +439,6 @@ $(window).on('load', function(){
         var elem = document.activeElement;
         if (elem && elem.tagName == 'IFRAME')
         {
-          console.log(elem.id);
-          console.log(elem.style.zIndex);
 
           if (elem.id == 'gazebo-iframe'){
             placeOnTop('gazebo-popup');
@@ -423,6 +462,12 @@ $(window).on('load', function(){
 
 
 });
+
+
+
+
+
+
 
 
 

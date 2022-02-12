@@ -1,5 +1,6 @@
 p, h1, h2, h3, a, div {
-font-family: 'Source Sans Pro', sans-serif;
+font-family: "Helvetica", sans-serif;
+text-shadow: 0px 0px 4px #000;
 }
 
 a : hover{
@@ -8,9 +9,9 @@ cursor: pointer;
 
 
 .popup {
+  box-shadow: 0px 0px 20px #000000;
   z-index: 9;
   background-color: transparent;
-  border: 1px solid transparent;
   text-align: center;
   min-height: 200px;
   min-width: 300px;
@@ -18,6 +19,17 @@ cursor: pointer;
   max-width: 1920px;
 }
 
+body {
+  background: url('/static/wallpaper.svg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+span:hover{
+    cursor:pointer;
+}
 iframe {
     width: 100%;
     height: calc(100% - 45px);

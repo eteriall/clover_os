@@ -1,0 +1,12 @@
+[Unit]
+Description=code-server
+After=nginx.service
+
+[Service]
+User=pi
+Type=simple
+ExecStart=/usr/bin/code-server --bind-addr 0.0.0.0:591 --auth none
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

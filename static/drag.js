@@ -3,6 +3,18 @@ window.onload = function() {
   initResizeElement();
 };
 
+function placeOnTop(id){
+            var elem = document.getElementById(id);
+            var maxZ = Math.max.apply(null,
+            $.map($('body *'), function(e,n) {
+              if ($(e).css('position') != 'static')
+                return parseInt($(e).css('z-index')) || 1;
+            }));
+            if (elem.style.zIndex != maxZ){
+                elem.style.zIndex = maxZ + 1;
+            }
+        }
+
  function turnOffPointerEvents() {
         var popups = document.getElementsByTagName("iframe");
         console.log('in');
@@ -12,7 +24,7 @@ window.onload = function() {
         };
   }
 
-  function turnOnPointerEvents() {
+function turnOnPointerEvents() {
         var popups = document.getElementsByTagName("iframe");
         console.log('out');
         for (var i = 0; i < popups.length; i++) {
@@ -34,18 +46,20 @@ function initDragElement() {
     var header = getHeader(popup);
 
     popup.onmousedown = function() {
-      this.style.zIndex = "" + ++currentZIndex;
+      placeOnTop(this.id);
     };
 
     if (header) {
       header.parentPopup = popup;
       header.onmousedown = dragMouseDown;
+      header.onmouseup = turnOnPointerEvents;
     }
   }
 
   function dragMouseDown(e) {
+    turnOffPointerEvents();
     elmnt = this.parentPopup;
-    elmnt.style.zIndex = "" + ++currentZIndex;
+    placeOnTop(elmnt.id);
 
     e = e || window.event;
     // get the mouse cursor position at startup:
@@ -100,24 +114,9 @@ function initResizeElement() {
     var right = document.createElement("div");
     right.className = "resizer-right";
     right.onclick = turnOnPointerEvents;
-
     p.appendChild(right);
     right.addEventListener("mousedown", initDrag, false);
     right.parentPopup = p;
-
-    var bottom = document.createElement("div");
-    bottom.className = "resizer-bottom";
-    bottom.onclick = turnOnPointerEvents;
-    p.appendChild(bottom);
-    bottom.addEventListener("mousedown", initDrag, false);
-    bottom.parentPopup = p;
-
-    var both = document.createElement("div");
-    both.onclick = turnOnPointerEvents;
-    both.className = "resizer-both";
-    p.appendChild(both);
-    both.addEventListener("mousedown", initDrag, false);
-    both.parentPopup = p;
   }
 
   function initDrag(e) {
@@ -146,6 +145,7 @@ function initResizeElement() {
   }
 
   function stopDrag() {
+    turnOnPointerEvents();
     document.documentElement.removeEventListener("mousemove", doDrag, false);
     document.documentElement.removeEventListener("mouseup", stopDrag, false);
   }

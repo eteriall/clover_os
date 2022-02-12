@@ -8,6 +8,7 @@ MY_ADDRESS = requests.get('http://checkip.amazonaws.com/').text
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html', IP=MY_ADDRESS)

@@ -1,15 +1,17 @@
 <head>
     <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/os_x.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400;1,500&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap"
           rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>COEX-Cloud</title>
 </head>
 
-<body>
-<div id="loading" style="position:absolute; z-index: 999999999999;">
-        <style>:root{
+<body style="background: linear-gradient(106.66deg, #050C18 7.56%, #010611 35.97%, #203159 106.91%);">
+<div id="loading" style="position:absolute; z-index: 10;">
+    <style>:root{
   --main-color: #6EACF9;
   --main-color-dark: #305AF6;
   --ray-color: #FFD6BB;
@@ -20,7 +22,6 @@ body{
   margin:0;
   padding: 0;
   background: linear-gradient(106.66deg, #050C18 7.56%, #010611 35.97%, #203159 106.91%);
-
 }
 .container{
   max-width: 800px;
@@ -174,6 +175,13 @@ background: linear-gradient(106.66deg, #050C18 7.56%, #010611 35.97%, #203159 10
 
 
 
+
+
+
+
+
+
+
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,7 +238,7 @@ background: linear-gradient(106.66deg, #050C18 7.56%, #010611 35.97%, #203159 10
             color: white;
             font-family: 'Ubuntu';
             font-weight: 400 !important;;
-            z-index: 99999;
+            z-index: 11;
             width: 100vw;
             text-align: center;
 margin-top: 540px;">
@@ -240,7 +248,7 @@ margin-top: 540px;">
             color: white;
             font-family: 'Ubuntu';
             font-weight: 200 !important;
-            z-index: 99999;
+            z-index: 11;
             width: 100vw;
             text-align: center;
             margin-top: 585px;">
@@ -250,75 +258,179 @@ margin-top: 540px;">
 
 </div>
 
-<div class="popup" id="butterfly-popup">
+
+<div id="Desktop">
+    <div onclick="document.getElementById('gazebo-popup').style.removeProperty('display'); placeOnTop('gazebo-popup');" class="icon"
+         data-title="Gazebo Web"><img class="icon-img"
+                                      src="https://upload.wikimedia.org/wikipedia/en/5/5e/Gazebo_logo_without_text.svg">
+    </div>
+    <div onclick="document.getElementById('vs-code-popup').style.removeProperty('display'); placeOnTop('vs-code-popup');" class="icon"
+         data-title="VS Code"><img class="icon-img"
+                                   src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg">
+    </div>
+    <div onclick="document.getElementById('butterfly-popup').style.removeProperty('display'); placeOnTop('butterfly-popup');" class="icon"
+         data-title="Terminal"><img class="icon-img"
+                                    src="https://raw.githubusercontent.com/dhanishgajjar/terminal-icons/master/png/synthwave_option_6.png">
+    </div>
+    <!--<div onclick="document.getElementById('service-log-popup').style.removeProperty('display');" class="icon" data-title="Service Log"><img class="icon-img" src="https://raw.githubusercontent.com/dhanishgajjar/terminal-icons/master/png/synthwave_option_6.png"></div> -->
+</div>
+
+
+<div class="popup" id="butterfly-popup" style="width: 1200px; height: 280px;">
     <div class="popup-header">
         <b style="margin-right: 40px; float: left; ">Terminal</b>
-
-
         <a onclick="document.getElementById('butterfly-popup').style.display = 'none';"
-           style="float: right;">&nbspclose</a>
-
+           style="float: right; margin-left: 5px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.82109" cy="8.14978" r="7.679" fill="#EC6A5F"/>
+                <line x1="4.86377" y1="11.2478" x2="10.8474" y2="5.26409" stroke="#8B1A11" stroke-width="1.44156"
+                      stroke-linecap="round"/>
+                <line x1="5.03691" y1="5.35089" x2="11.0206" y2="11.3346" stroke="#8B1A11" stroke-width="1.44156"
+                      stroke-linecap="round"/>
+            </svg>
+        </a>
         <a href="http://{{IP}}:57575/" target="_blank"
            style="float: right; text-decoration: none; color:white; float: right;"
-           onclick="document.getElementById('butterfly-popup').style.display = 'none';">fullscreen / </a>
-
+           onclick="document.getElementById('butterfly-popup').style.display = 'none';">
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.80498" cy="8.14978" r="7.679" fill="#61C553"/>
+                <path d="M3.87376 4.16519C3.88723 4.01016 4.01016 3.88723 4.16519 3.87377L9.23147 3.43367C9.52933 3.40779 9.69712 3.76792 9.48571 3.97933L3.97933 9.48571C3.76792 9.69712 3.40779 9.52933 3.43367 9.23147L3.87376 4.16519Z"
+                      fill="#347621"/>
+                <path d="M11.9016 11.9648C11.8882 12.1198 11.7652 12.2427 11.6102 12.2562L6.54392 12.6963C6.24606 12.7222 6.07827 12.3621 6.28968 12.1506L11.7961 6.64426C12.0075 6.43285 12.3676 6.60065 12.3417 6.8985L11.9016 11.9648Z"
+                      fill="#347621"/>
+            </svg>
+        </a>
     </div>
     <iframe id='butterfly-iframe' src="http://{{IP}}:57575/"></iframe>
-    <div style="height: 40px; width: 100%"></div>
 </div>
-<div class="popup" id="vs-code-popup">
+<div class="popup" id="vs-code-popup" style="width: 1000px; height: 800px;">
     <div class="popup-header">
         <b style="margin-right: 40px; float: left; ">Visual Studio Code</b>
-
-
         <a onclick="document.getElementById('vs-code-popup').style.display = 'none';"
-           style="float: right;">&nbspclose</a>
-
-        <a href="http://{{IP}}:5000/?folder=%2Fhome%2Fubuntu" target="_blank"
+           style="float: right;  margin-left: 5px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.82109" cy="8.14978" r="7.679" fill="#EC6A5F"/>
+                <line x1="4.86377" y1="11.2478" x2="10.8474" y2="5.26409" stroke="#8B1A11" stroke-width="1.44156"
+                      stroke-linecap="round"/>
+                <line x1="5.03691" y1="5.35089" x2="11.0206" y2="11.3346" stroke="#8B1A11" stroke-width="1.44156"
+                      stroke-linecap="round"/>
+            </svg>
+        </a>
+        <a href="http://{{IP}}:5000/?folder=/home/clover" target="_blank"
            style="float: right; text-decoration: none; color:white; float: right;"
-           onclick="document.getElementById('vs-code-popup').style.display = 'none';">fullscreen / </a>
-
+           onclick="document.getElementById('vs-code-popup').style.display = 'none';">
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.80498" cy="8.14978" r="7.679" fill="#61C553"/>
+                <path d="M3.87376 4.16519C3.88723 4.01016 4.01016 3.88723 4.16519 3.87377L9.23147 3.43367C9.52933 3.40779 9.69712 3.76792 9.48571 3.97933L3.97933 9.48571C3.76792 9.69712 3.40779 9.52933 3.43367 9.23147L3.87376 4.16519Z"
+                      fill="#347621"/>
+                <path d="M11.9016 11.9648C11.8882 12.1198 11.7652 12.2427 11.6102 12.2562L6.54392 12.6963C6.24606 12.7222 6.07827 12.3621 6.28968 12.1506L11.7961 6.64426C12.0075 6.43285 12.3676 6.60065 12.3417 6.8985L11.9016 11.9648Z"
+                      fill="#347621"/>
+            </svg>
+        </a>
     </div>
-    <iframe id='vs-code-iframe' src="http://{{IP}}:5000/?folder=%2Fhome%2Fubuntu"></iframe>
-    <div style="height: 40px; width: 100%"></div>
+    <iframe id='vs-code-iframe' src="http://{{IP}}:5000/?folder=/home/clover"></iframe>
 </div>
-<div class="popup" id="gazebo-popup">
+<div class="popup" id="gazebo-popup" style="width: 1000px; height: 800px;">
     <div class="popup-header">
         <b style="margin-right: 40px; float: left; ">Gazebo Web</b>
-
-
-        <a onclick="document.getElementById('gazebo-popup').style.display = 'none';"
-           style="float: right;">&nbspclose</a>
-
+        <a onclick="document.getElementById('gazebo-popup').style.display = 'none';" style="float: right; margin-left: 5px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.82109" cy="8.14978" r="7.679" fill="#EC6A5F"/>
+                <line x1="4.86377" y1="11.2478" x2="10.8474" y2="5.26409" stroke="#8B1A11" stroke-width="1.44156"
+                      stroke-linecap="round"/>
+                <line x1="5.03691" y1="5.35089" x2="11.0206" y2="11.3346" stroke="#8B1A11" stroke-width="1.44156"
+                      stroke-linecap="round"/>
+            </svg>
+        </a>
         <a href="http://{{IP}}:7070/" target="_blank"
            style="float: right; text-decoration: none; color:white; float: right;"
-           onclick="document.getElementById('gazebo-popup').style.display = 'none';">fullscreen / </a>
-
+           onclick="document.getElementById('gazebo-popup').style.display = 'none';">
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.80498" cy="8.14978" r="7.679" fill="#61C553"/>
+                <path d="M3.87376 4.16519C3.88723 4.01016 4.01016 3.88723 4.16519 3.87377L9.23147 3.43367C9.52933 3.40779 9.69712 3.76792 9.48571 3.97933L3.97933 9.48571C3.76792 9.69712 3.40779 9.52933 3.43367 9.23147L3.87376 4.16519Z"
+                      fill="#347621"/>
+                <path d="M11.9016 11.9648C11.8882 12.1198 11.7652 12.2427 11.6102 12.2562L6.54392 12.6963C6.24606 12.7222 6.07827 12.3621 6.28968 12.1506L11.7961 6.64426C12.0075 6.43285 12.3676 6.60065 12.3417 6.8985L11.9016 11.9648Z"
+                      fill="#347621"/>
+            </svg>
+        </a>
     </div>
     <iframe id='gazebo-iframe' src="http://{{IP}}:7070/"></iframe>
-    <div style="height: 40px; width: 100%"></div>
 </div>
 
-<h1>Coex-Cloud workspace {{IP}}</h1>
+
+<!--<div class="popup" id="service-log-popup" style="width: 1000px; height: 800px;">
+    <div class="popup-header">
+        <b style="margin-right: 40px; float: left; ">Service Log</b>
 
 
-<div>
-    <button onclick="document.getElementById('butterfly-popup').style.removeProperty('display');">Terminal</button>
-    <button onclick="document.getElementById('vs-code-popup').style.removeProperty('display');">VS Code</button>
-    <button onclick="document.getElementById('gazebo-popup').style.removeProperty('display');">Gazebo Web</button>
+        <a onclick="document.getElementById('service-log-popup').style.display = 'none';"
+           style="float: right;">&nbspclose</a>
+
+        <a href="http://{{IP}}/log" target="_blank"
+           style="float: right; text-decoration: none; color:white; float: right;"
+           onclick="document.getElementById('service-log-popup').style.display = 'none';">fullscreen / </a>
+
+    </div>
+    <iframe id='service-log-iframe' src="http://{{IP}}/log"></iframe>
 </div>
-<br>
+-->
+
+<!--
 <form style="display: inline-block;" class="control" method=post action="reset"><input type=submit value="Reset sim">
 </form>
 <form style="display: inline-block;" class="control" method=post action="stop"><input type=submit value="Stop sim">
 </form>
 <span>(<a href="log">service log</a>)</span>
+-->
 
 <script type="text/javascript" src="static/drag.js"></script>
 <script>
 $(window).on('load', function(){
     document.getElementById('loading').remove();
     console.log('loaded');
+
+    var popups = document.getElementsByClassName('popup');
+    for (let i = 0; i < popups.length; i++){
+            popups[i].style.display = 'none';
+    }
+
+    var detector = setInterval(function() {
+        var elem = document.activeElement;
+        if (elem && elem.tagName == 'IFRAME')
+        {
+          console.log(elem.id);
+          console.log(elem.style.zIndex);
+
+          if (elem.id == 'gazebo-iframe'){
+            placeOnTop('gazebo-popup');
+          }
+
+          if (elem.id == 'vs-code-iframe'){
+            placeOnTop('vs-code-popup');
+          }
+
+          if (elem.id == 'butterfly-iframe'){
+            placeOnTop('butterfly-popup');
+          }
+
+
+
+
+        }
+      }, 100);
+
+
+
+
 });
+
+
+
+
+
+
+
 </script>
+
+
 </body>

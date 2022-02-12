@@ -2,6 +2,11 @@ p, h1, h2, h3, a, div {
 font-family: 'Source Sans Pro', sans-serif;
 }
 
+a : hover{
+cursor: pointer;
+}
+
+
 .popup {
   z-index: 9;
   background-color: transparent;
@@ -15,7 +20,11 @@ font-family: 'Source Sans Pro', sans-serif;
 
 iframe {
     width: 100%;
-    height: 98%;
+    height: calc(100% - 45px);
+    border-left: 1px solid #68686B;
+    border-right: 1px solid #68686B;
+    border-bottom: 1px solid #68686B;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .popup {
@@ -25,11 +34,15 @@ iframe {
 
 .popup-header {
     height: 20px;
-  padding: 10px;
-  cursor: move;
-  z-index: 10;
-  background-color: #2D2D2D;
-  color: #fff;
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2D2D2D;
+    color: #fff;
+    border-left: 1px solid #68686B;
+    border-right: 1px solid #68686B;
+    border-top: 1px solid #68686B;
+    border-radius: 10px 10px 0px 0px;
 }
 
 /*Resizeable*/
@@ -41,7 +54,7 @@ iframe {
   position: absolute;
   right: 0;
   bottom: 0;
-  cursor: e-resize;
+  cursor: nw-resize;
 }
 
 .popup .resizer-bottom {
@@ -51,7 +64,7 @@ iframe {
   position: absolute;
   right: 0;
   bottom: 0;
-  cursor: n-resize;
+  cursor: nw-resize;
 }
 
 .popup .resizer-both {
@@ -65,7 +78,6 @@ iframe {
   cursor: nw-resize;
 }
 
-/*NOSELECT*/
 
 .popup * {
   -webkit-touch-callout: none; /* iOS Safari */

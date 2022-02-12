@@ -315,7 +315,7 @@ margin-top: 540px;">
                       fill="#347621"/>
             </svg>
         </a>                                                                 <!-- Full screen --->
-        <span onclick="document.getElementById('butterfly-iframe').contentWindow.location.reload();"
+        <span onclick="document.getElementById('butterfly-iframe').src = document.getElementById('butterfly-iframe').src;"
               style="float: right; margin-right: 5px;">
             <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="8.5" cy="8" r="8" fill="#5387C5"/>
@@ -340,7 +340,7 @@ margin-top: 540px;">
                       stroke-linecap="round"/>
             </svg>
         </span>                               <!-- Close --->
-        <a href="http://{{IP}}:591/?folder=/home/clover" target="_blank"
+        <a href="http://{{IP}}:591/?folder=/home/pi" target="_blank"
            style="float: right; text-decoration: none; color:white; float: right;"
            onclick="document.getElementById('vs-code-popup').style.display = 'none';">
             <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -351,7 +351,7 @@ margin-top: 540px;">
                       fill="#347621"/>
             </svg>
         </a>                                              <!-- Full screen --->
-        <span onclick="document.getElementById('vs-code-iframe').contentWindow.location.reload();"
+        <span onclick="document.getElementById('vs-code-iframe').src = document.getElementById('vs-code-iframe').src;"
               style="float: right; margin-right: 5px;">
             <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="8.5" cy="8" r="8" fill="#5387C5"/>
@@ -360,7 +360,7 @@ margin-top: 540px;">
             </svg>
         </span>                     <!-- Reload app --->
     </div>
-    <iframe id='vs-code-iframe' src="http://{{IP}}:591/?folder=/home/clover"></iframe>
+    <iframe id='vs-code-iframe' src="http://{{IP}}:591/?folder=/home/pi"></iframe>
 </div>
 
 <div class="popup" id="gazebo-popup" style="width: 1000px; height: 800px;">
@@ -386,7 +386,7 @@ margin-top: 540px;">
                       fill="#347621"/>
             </svg>
         </a>                                                                   <!-- Full screen --->
-        <span onclick="document.getElementById('gazebo-iframe').contentWindow.location.reload();"
+        <span onclick="document.getElementById('gazebo-iframe').src = document.getElementById('gazebo-iframe').src"
               style="float: right; margin-right: 5px;">
             <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="8.5" cy="8" r="8" fill="#5387C5"/>

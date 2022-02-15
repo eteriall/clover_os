@@ -13,7 +13,7 @@ sudo docker run \
   -p 8000:80 \
   -p 18570:18570/udp \
   -p 591:591 \
-  ghcr.io/eteriall/clover_cloud:latest
+  ghcr.io/eteriall/clover_os:latest
 ```
 ## Web-tools
 

@@ -287,6 +287,11 @@ margin-top: 540px;">
          data-title="Console"><img class="icon-img"
                                     src="https://raw.githubusercontent.com/dhanishgajjar/terminal-icons/master/png/synthwave_option_6.png">
     </div>
+    <div onclick="document.getElementById('blocks-popup').style.removeProperty('display'); placeOnTop('blocks-popup');"
+         class="icon"
+         data-title="Blocks"><img class="icon-img"
+                                    src="/static/brick-icon.png">
+    </div>
     <!--<div onclick="document.getElementById('service-log-popup').style.removeProperty('display');" class="icon" data-title="Service Log"><img class="icon-img" src="https://raw.githubusercontent.com/dhanishgajjar/terminal-icons/master/png/synthwave_option_6.png"></div> -->
 </div>
 
@@ -399,6 +404,41 @@ margin-top: 540px;">
     <iframe id='gazebo-iframe' src="http://{{IP}}:7070/"></iframe>
 </div>
 
+<div class="popup" id="blocks-popup" style="width: 1000px; height: 800px;">
+    <div class="popup-header">
+        <span style="margin-right: 40px; float: left; ">Gazebo Web</span>
+        <a onclick="document.getElementById('blocks-popup').style.display = 'none';" style="float: right; margin-left: 5px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.82109" cy="8.14978" r="7.679" fill="#EC6A5F"/>
+                <line x1="4.86377" y1="11.2478" x2="10.8474" y2="5.26409" stroke="#8B1A11" stroke-width="1.44156"
+                      stroke-linecap="round"/>
+                <line x1="5.03691" y1="5.35089" x2="11.0206" y2="11.3346" stroke="#8B1A11" stroke-width="1.44156"
+                      stroke-linecap="round"/>
+            </svg>
+        </a>                        <!-- Close --->
+        <a href="http://{{IP}}:8000/clover_blocks" target="_blank"
+           style="float: right; text-decoration: none; color:white; float: right;"
+           onclick="document.getElementById('gazebo-popup').style.display = 'none';">
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7.80498" cy="8.14978" r="7.679" fill="#61C553"/>
+                <path d="M3.87376 4.16519C3.88723 4.01016 4.01016 3.88723 4.16519 3.87377L9.23147 3.43367C9.52933 3.40779 9.69712 3.76792 9.48571 3.97933L3.97933 9.48571C3.76792 9.69712 3.40779 9.52933 3.43367 9.23147L3.87376 4.16519Z"
+                      fill="#347621"/>
+                <path d="M11.9016 11.9648C11.8882 12.1198 11.7652 12.2427 11.6102 12.2562L6.54392 12.6963C6.24606 12.7222 6.07827 12.3621 6.28968 12.1506L11.7961 6.64426C12.0075 6.43285 12.3676 6.60065 12.3417 6.8985L11.9016 11.9648Z"
+                      fill="#347621"/>
+            </svg>
+        </a>                                                                   <!-- Full screen --->
+        <span onclick="document.getElementById('blocks-iframe').src = document.getElementById('blocks-iframe').src"
+              style="float: right; margin-right: 5px;">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8.5" cy="8" r="8" fill="#5387C5"/>
+            <path d="M5.67334 11.0419H7.74365V8.67857H8.32959C8.34587 8.67857 8.36214 8.67857 8.37842 8.67857C8.39469 8.67857 8.40934 8.67857 8.42236 8.67857L9.53564 11.0419H11.8501L10.5122 8.37096C10.8768 8.19518 11.1567 7.92662 11.3521 7.56529C11.5474 7.20071 11.645 6.81171 11.645 6.3983V6.38853C11.645 5.88398 11.5392 5.45429 11.3276 5.09947C11.1193 4.7414 10.8084 4.46796 10.395 4.27916C9.98161 4.09036 9.46566 3.99596 8.84717 3.99596H5.67334V11.0419ZM7.74365 7.31139V5.52428H8.60791C8.89111 5.52428 9.11572 5.60728 9.28174 5.7733C9.45101 5.93932 9.53564 6.15253 9.53564 6.41295V6.42271C9.53564 6.68964 9.45101 6.90449 9.28174 7.06725C9.11572 7.23001 8.89111 7.31139 8.60791 7.31139H7.74365Z"
+                  fill="#2D2176"/>
+            </svg>
+        </span>                       <!-- Reload app --->
+    </div>
+    <iframe id='blocks-iframe' src="http://{{IP}}:8000/clover_blocks"></iframe>
+</div>
+
 
 <!--<div class="popup" id="service-log-popup" style="width: 1000px; height: 800px;">
     <div class="popup-header">
@@ -452,28 +492,14 @@ $(window).on('load', function(){
             placeOnTop('butterfly-popup');
           }
 
-
+          if (elem.id == 'blocks-iframe'){
+            placeOnTop('butterfly-popup');
+          }
 
 
         }
       }, 100);
-
-
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 

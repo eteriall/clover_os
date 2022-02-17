@@ -5,7 +5,7 @@ Requires=docker.service
 
 [Service]
 ExecStart=docker run --rm -p 8080:8080 -p 9090:9090 -p 7070:7070 -p 57575:57575 -p 8000:80 -p 591:591 -p 18570:18570/udp \
-  ghcr.io/eteriall/clover_cloud:latest
+  ghcr.io/eteriall/clover_os:latest
 
 [Install]
 WantedBy=default.target

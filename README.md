@@ -1,6 +1,7 @@
 # CloverOS
 
-### CloverOS - Комплекс программ для создания виртуального рабочего стола в браузере.
+### CloverOS - Сервис с программным обеспечением для программирования дронов.
+## http://alpha.coex-cloud.ru
 
 <img width="1680" alt="Снимок экрана 2022-02-16 в 20 02 55" src="https://user-images.githubusercontent.com/57683566/154317387-83aa605d-06ab-418b-98a7-dd4084815c7d.png">
 

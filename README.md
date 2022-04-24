@@ -8,10 +8,12 @@
 
 Модуль CloverOS входит в проект COEX-Cloud - Облачный сервис для моделирования поведения и программирования квадрокоптеров в облачной среде.
 
+* `http://<ip_address>:8000` – Blockly.
+*  `http://<ip_address>:591` – Visual Studio code.
 * `http://<ip_address>:8080` – Clover's web tools.
 * `http://<ip_address>:57575` – Terminal.
 * `http://<ip_address>:7070` – Gazebo web.
-* `http://<ip_address>:591` – Visual Studio code.
+
 
 
 <img src="https://user-images.githubusercontent.com/57683566/154319227-1a41ed9e-b7d9-484f-82ed-3586fbb76b19.png" width="600px">
